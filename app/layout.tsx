@@ -22,6 +22,8 @@ const splineMono = Spline_Sans_Mono({
   variable: "--font-spline-mono",
   subsets: ["latin"],
   display: "swap",
+  // Solo se usa en etiquetas debajo del primer pliegue: no compite con el titular.
+  preload: false,
 });
 
 export const metadata: Metadata = {

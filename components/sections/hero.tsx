@@ -68,7 +68,6 @@ export function Hero() {
           />
           <PhoneFrame
             shot={phone}
-            priority
             sizes="(min-width: 64rem) 150px, 120px"
             className="absolute right-0 bottom-0 w-[24%] max-w-[10rem]"
           />
