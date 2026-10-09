@@ -20,40 +20,40 @@ export const btnLg = "min-h-14 px-7 py-4 text-lg";
 export const btnSm = "min-h-11 px-4 py-2 text-[0.95rem]";
 
 export const btnVariant = {
-  /** Acción principal sobre fondo oscuro (hero, cierre, encabezado). */
-  primaryDark:
-    "border-lima-400 bg-lima-400 text-ink-950 hover:border-lima-500 hover:bg-lima-500",
-  /** Acción principal sobre fondo claro. */
-  primaryLight:
-    "border-cobalt-600 bg-cobalt-600 text-white hover:border-cobalt-700 hover:bg-cobalt-700",
+  /** Acción principal: dorado apagado con texto oscuro. */
+  primary:
+    "border-gold-400 bg-gold-400 text-night-950 hover:border-gold-300 hover:bg-gold-300",
   /** Acción secundaria sobre fondo oscuro. */
-  secondaryDark:
-    "border-white/50 bg-cobalt-600 text-white hover:border-white hover:bg-cobalt-500",
+  secondary:
+    "border-fg/35 bg-night-900 text-fg hover:border-fg hover:bg-night-700",
   /** Acción secundaria sobre el panel del menú, que es más oscuro que el resto. */
   secondaryDeep:
-    "border-white/50 bg-cobalt-700 text-white hover:border-white hover:bg-cobalt-600",
-  /** Acción secundaria sobre fondo claro. */
-  secondaryLight:
-    "border-ink-950/35 bg-white text-ink-950 hover:border-ink-950 hover:bg-mist",
+    "border-fg/35 bg-night-950 text-fg hover:border-fg hover:bg-night-700",
+  /** Acción principal sobre el bloque dorado del cierre. */
+  onGoldPrimary:
+    "border-night-950 bg-night-950 text-gold-300 hover:border-night-800 hover:bg-night-800",
+  /** Acción secundaria sobre el bloque dorado del cierre. */
+  onGoldSecondary:
+    "border-night-950/60 bg-gold-400 text-night-950 hover:border-night-950 hover:bg-gold-300",
 } as const;
 
 export type BtnVariant = keyof typeof btnVariant;
 
 /** Enlace de texto con subrayado, para contenido corrido. */
 export const textLink =
-  "font-medium text-cobalt-600 underline decoration-cobalt-600/40 decoration-2 underline-offset-4 transition-colors hover:decoration-cobalt-600";
+  "font-medium text-gold-400 underline decoration-gold-400/40 decoration-2 underline-offset-4 transition-colors hover:decoration-gold-400";
 
 /** Etiqueta chica (tecnologías, tipo de proyecto). */
 export const chip =
-  "inline-flex items-center rounded-sm border border-line bg-white px-2.5 py-1 font-mono text-[0.8125rem] leading-none text-ink-800";
+  "inline-flex items-center rounded-sm border border-night-700 bg-night-800 px-2.5 py-1 font-mono text-[0.8125rem] leading-none text-fg-soft";
 
 export const chipTech = chip;
 
 /** Etiqueta de aclaración sobre la naturaleza del proyecto. */
 export const badge =
-  "inline-flex items-center gap-1.5 rounded-sm border border-ink-950/25 bg-cobalt-100 px-2.5 py-1 text-[0.8125rem] font-semibold leading-none text-ink-950";
+  "inline-flex items-center gap-1.5 rounded-sm border border-gold-400/25 bg-night-800 px-2.5 py-1 text-[0.8125rem] font-semibold leading-none text-fg";
 
 /** Título de sección. */
-export const h2 = "font-display text-heading font-semibold text-ink-950";
+export const h2 = "font-display text-heading font-semibold text-fg";
 
-export const lead = "text-lead text-ink-600";
+export const lead = "text-lead text-fg-mute";

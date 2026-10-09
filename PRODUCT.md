@@ -25,7 +25,7 @@ Oficio, claridad, trato directo. Profesional y cercana, voz en español rioplate
 2. Una sola acción: escribir por WhatsApp. Email y LinkedIn existen y pesan menos.
 3. Honestidad visible: lo que es demostración se dice; no hay testimonios, logos ni cifras inventadas.
 4. La página se defiende sola: rápida, sin saltos de layout, accesible, con poco JavaScript.
-5. Identidad propia: color comprometido, tipografía con carácter, sin degradados decorativos.
+5. Identidad propia: fondo casi negro de matiz azulado y un dorado apagado como único acento, tipografía con carácter, sin degradados decorativos.
 
 ## Accessibility & Inclusion
 WCAG AA como piso: contraste, foco visible, objetivos táctiles de 44 px, textos alternativos descriptivos, `prefers-reduced-motion` respetado, navegación completa por teclado, enlace para saltar al contenido.

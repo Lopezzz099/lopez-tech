@@ -48,7 +48,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         >
           {project.name}
         </h3>
-        <p className="mt-3 text-lead text-ink-800">{project.tagline}</p>
+        <p className="mt-3 text-lead text-fg-soft">{project.tagline}</p>
         <ul className="mt-5 flex flex-wrap gap-2" aria-label="Tecnologías">
           {project.stack.slice(0, 5).map((tech) => (
             <li key={tech} className={chip}>
@@ -59,7 +59,7 @@ function ProjectRow({ project, index }: { project: Project; index: number }) {
         <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
           <Link
             href={`/proyectos/${project.slug}`}
-            className={cx(btn, btnVariant.primaryLight)}
+            className={cx(btn, btnVariant.primary)}
           >
             Ver el proyecto
             <span className="sr-only">: {project.name}</span>
@@ -90,7 +90,7 @@ export function Projects() {
     <section
       id="proyectos"
       aria-labelledby="titulo-proyectos"
-      className={cx("bg-paper", sectionY)}
+      className={cx("bg-night-900", sectionY)}
     >
       <div className={container}>
         <div className="max-w-3xl">
@@ -109,11 +109,11 @@ export function Projects() {
           ))}
         </div>
 
-        <div className="mt-20 flex flex-col items-start gap-4 border-t border-line pt-10 tablet:flex-row tablet:items-center tablet:justify-between">
+        <div className="mt-20 flex flex-col items-start gap-4 border-t border-night-700 pt-10 tablet:flex-row tablet:items-center tablet:justify-between">
           <p className="font-display text-title font-semibold">
             ¿Te imaginás algo parecido para lo tuyo?
           </p>
-          <WhatsAppButton variant="primaryLight" />
+          <WhatsAppButton variant="primary" />
         </div>
       </div>
     </section>

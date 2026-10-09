@@ -6,10 +6,11 @@ export const ogSize = { width: 1200, height: 630 };
 export const ogContentType = "image/png";
 
 // Colores de app/globals.css convertidos a hex (ImageResponse no entiende OKLCH).
-const COBALT = "#1c3dbb";
-const LIMA = "#daf537";
-const INK = "#0c152a";
-const SOFT = "#bbd1ff";
+const BG = "#0e1218";
+const GOLD = "#d6b265";
+const INK = "#07090f";
+const SOFT = "#a0a5ae";
+const FG = "#eceef3";
 
 async function font(weight: 400 | 700): Promise<ArrayBuffer> {
   const file = path.join(
@@ -35,8 +36,8 @@ export async function renderOg({ title, subtitle, tag }: OgProps) {
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
-          background: COBALT,
-          color: "#ffffff",
+          background: BG,
+          color: FG,
           padding: "64px 72px",
           fontFamily: "Bricolage",
         }}
@@ -47,7 +48,7 @@ export async function renderOg({ title, subtitle, tag }: OgProps) {
               width: 64,
               height: 64,
               borderRadius: 15,
-              background: LIMA,
+              background: GOLD,
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
@@ -70,7 +71,7 @@ export async function renderOg({ title, subtitle, tag }: OgProps) {
                 padding: "8px 18px",
                 borderRadius: 8,
                 border: `2px solid ${SOFT}`,
-                color: "#ffffff",
+                color: FG,
                 fontSize: 26,
               }}
             >
@@ -97,7 +98,7 @@ export async function renderOg({ title, subtitle, tag }: OgProps) {
           </div>
         </div>
 
-        <div style={{ display: "flex", height: 10, width: 220, background: LIMA }} />
+        <div style={{ display: "flex", height: 10, width: 220, background: GOLD }} />
       </div>
     ),
     {

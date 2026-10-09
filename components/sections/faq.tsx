@@ -8,7 +8,7 @@ export function Faq() {
     <section
       id="preguntas"
       aria-labelledby="titulo-preguntas"
-      className={cx("bg-paper", sectionY)}
+      className={cx("bg-night-800", sectionY)}
     >
       <div className={cx(container, "grid gap-12 laptop:grid-cols-12 laptop:gap-16")}>
         <div className="laptop:col-span-4">
@@ -20,18 +20,18 @@ export function Faq() {
           </p>
         </div>
 
-        <div className="border-t-2 border-ink-950 laptop:col-span-8">
+        <div className="border-t-2 border-gold-400 laptop:col-span-8">
           {faqs.map((item) => (
-            <details key={item.question} className="group border-b border-line">
-              <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 py-4 font-display text-title font-semibold hover:text-cobalt-600">
+            <details key={item.question} className="group border-b border-night-700">
+              <summary className="flex min-h-16 cursor-pointer items-center justify-between gap-4 py-4 font-display text-title font-semibold hover:text-gold-400">
                 {item.question}
                 <PlusIcon
                   width={24}
                   height={24}
-                  className="faq-icon shrink-0 text-cobalt-600 transition-[rotate] duration-200 ease-out"
+                  className="faq-icon shrink-0 text-gold-400 transition-[rotate] duration-200 ease-out"
                 />
               </summary>
-              <p className="measure pb-6 text-ink-800">{item.answer}</p>
+              <p className="measure pb-6 text-fg-soft">{item.answer}</p>
             </details>
           ))}
         </div>

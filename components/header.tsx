@@ -65,7 +65,7 @@ export function Header() {
   }, [pathname]);
 
   return (
-    <header className="on-dark sticky top-0 z-(--z-header) bg-cobalt-600 text-white">
+    <header className="sticky top-0 z-(--z-header) border-b border-night-700 bg-night-950 text-fg">
       <div className="mx-auto flex h-16 w-full max-w-[78rem] items-center justify-between gap-3 pr-2 pl-4 tablet:px-8">
         <Logo current={isHome && activeId === null} />
 
@@ -79,15 +79,15 @@ export function Header() {
                     href={item.href}
                     aria-current={current ? "location" : undefined}
                     className={cx(
-                      "relative inline-flex min-h-11 items-center px-3 text-[0.95rem] font-medium transition-colors hover:text-lima-400",
-                      current ? "text-white" : "text-cobalt-100",
+                      "relative inline-flex min-h-11 items-center px-3 text-[0.95rem] font-medium transition-colors hover:text-gold-300",
+                      current ? "text-fg" : "text-fg-soft",
                     )}
                   >
                     {item.label}
                     <span
                       aria-hidden="true"
                       className={cx(
-                        "absolute inset-x-3 bottom-1.5 h-0.5 rounded-full bg-lima-400 transition-opacity",
+                        "absolute inset-x-3 bottom-1.5 h-0.5 rounded-full bg-gold-400 transition-opacity",
                         current ? "opacity-100" : "opacity-0",
                       )}
                     />
@@ -108,7 +108,7 @@ export function Header() {
             aria-haspopup="dialog"
             aria-controls="menu-movil"
             aria-label="Abrir menú"
-            className="inline-flex size-12 items-center justify-center rounded-lg text-white transition-colors hover:bg-cobalt-500 laptop:hidden"
+            className="inline-flex size-12 items-center justify-center rounded-lg text-fg transition-colors hover:bg-night-700 laptop:hidden"
           >
             <MenuIcon width={26} height={26} />
           </button>
@@ -123,7 +123,7 @@ export function Header() {
           // Un clic sobre el fondo oscuro llega al propio <dialog>.
           if (e.target === dialogRef.current) closeMenu();
         }}
-        className="drawer on-dark fixed inset-y-0 right-0 left-auto z-(--z-drawer) m-0 h-dvh max-h-none w-[min(21rem,86vw)] max-w-none border-0 bg-cobalt-700 p-0 text-white"
+        className="drawer fixed inset-y-0 right-0 left-auto z-(--z-drawer) m-0 h-dvh max-h-none w-[min(21rem,86vw)] max-w-none border-0 border-l border-night-700 bg-night-950 p-0 text-fg"
       >
         <div className="flex h-full flex-col overflow-y-auto px-5 pt-3 pb-8">
           <div className="flex items-center justify-between">
@@ -132,7 +132,7 @@ export function Header() {
               type="button"
               onClick={closeMenu}
               aria-label="Cerrar menú"
-              className="-mr-2 inline-flex size-12 items-center justify-center rounded-lg transition-colors hover:bg-cobalt-600"
+              className="-mr-2 inline-flex size-12 items-center justify-center rounded-lg transition-colors hover:bg-night-950"
             >
               <CloseIcon width={26} height={26} />
             </button>
@@ -143,21 +143,21 @@ export function Header() {
               {navItems.map((item) => {
                 const current = activeId === item.id;
                 return (
-                  <li key={item.id} className="border-b border-white/15 last:border-b-0">
+                  <li key={item.id} className="border-b border-night-700/15 last:border-b-0">
                     <Link
                       href={item.href}
                       onClick={closeMenu}
                       aria-current={current ? "location" : undefined}
                       className={cx(
-                        "flex min-h-14 items-center justify-between gap-3 font-display text-title font-semibold transition-colors hover:text-lima-400",
-                        current ? "text-lima-400" : "text-white",
+                        "flex min-h-14 items-center justify-between gap-3 font-display text-title font-semibold transition-colors hover:text-gold-300",
+                        current ? "text-gold-400" : "text-fg",
                       )}
                     >
                       {item.label}
                       {current ? (
                         <span
                           aria-hidden="true"
-                          className="size-2.5 rounded-full bg-lima-400"
+                          className="size-2.5 rounded-full bg-gold-400"
                         />
                       ) : null}
                     </Link>

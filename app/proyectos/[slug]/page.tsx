@@ -74,7 +74,7 @@ export default async function ProjectPage({
       <section
         data-hide-float
         aria-labelledby="titulo-proyecto"
-        className="on-dark overflow-hidden bg-cobalt-600 text-white"
+        className="overflow-hidden bg-night-950 text-fg"
       >
         <div
           className={cx(
@@ -85,7 +85,7 @@ export default async function ProjectPage({
           <div>
             <Link
               href="/#proyectos"
-              className="inline-flex min-h-11 items-center gap-2 text-[0.95rem] font-medium text-cobalt-100 underline-offset-4 hover:text-lima-400 hover:underline"
+              className="inline-flex min-h-11 items-center gap-2 text-[0.95rem] font-medium text-fg-soft underline-offset-4 hover:text-gold-300 hover:underline"
             >
               <ArrowLeftIcon width={18} height={18} />
               Todos los proyectos
@@ -101,8 +101,8 @@ export default async function ProjectPage({
             >
               {project.name}
             </h1>
-            <p className="mt-5 text-lead text-white">{project.tagline}</p>
-            <p className="measure mt-4 text-cobalt-100">{project.description}</p>
+            <p className="mt-5 text-lead text-fg">{project.tagline}</p>
+            <p className="measure mt-4 text-fg-soft">{project.description}</p>
 
             <div className="mt-8 flex flex-col gap-3 narrow:flex-row narrow:flex-wrap">
               {project.siteUrl ? (
@@ -110,7 +110,7 @@ export default async function ProjectPage({
                   href={project.siteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={cx(btn, btnLg, btnVariant.primaryDark)}
+                  className={cx(btn, btnLg, btnVariant.primary)}
                 >
                   Ver el sitio
                   <span className="sr-only"> (se abre en una pestaña nueva)</span>
@@ -126,7 +126,7 @@ export default async function ProjectPage({
                   href={project.repoUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={cx(btn, btnLg, btnVariant.secondaryDark)}
+                  className={cx(btn, btnLg, btnVariant.secondary)}
                 >
                   <CodeIcon />
                   Ver el código
@@ -135,12 +135,12 @@ export default async function ProjectPage({
               ) : null}
             </div>
             {!project.siteUrl ? (
-              <p className="mt-5 max-w-[46ch] text-sm text-cobalt-200">
+              <p className="mt-5 max-w-[46ch] text-sm text-fg-mute">
                 La app no está publicada en ninguna tienda ni tiene enlace
                 público. Escribime y te la muestro funcionando.
               </p>
             ) : !project.repoUrl ? (
-              <p className="mt-5 max-w-[46ch] text-sm text-cobalt-200">
+              <p className="mt-5 max-w-[46ch] text-sm text-fg-mute">
                 El código de este proyecto es privado.
               </p>
             ) : null}
@@ -152,7 +152,7 @@ export default async function ProjectPage({
 
       <section
         aria-labelledby="titulo-demuestra"
-        className={cx("bg-paper", sectionY)}
+        className={cx("bg-night-900", sectionY)}
       >
         <div className={container}>
           <h2 id="titulo-demuestra" className={h2}>
@@ -160,11 +160,11 @@ export default async function ProjectPage({
           </h2>
           <ul className="mt-12 grid gap-x-12 gap-y-10 tablet:grid-cols-2">
             {project.demonstrates.map((point) => (
-              <li key={point.title} className="border-t-2 border-ink-950 pt-5">
+              <li key={point.title} className="border-t-2 border-gold-400 pt-5">
                 <h3 className="font-display text-title font-semibold">
                   {point.title}
                 </h3>
-                <p className="mt-3 text-ink-800">{point.text}</p>
+                <p className="mt-3 text-fg-soft">{point.text}</p>
               </li>
             ))}
           </ul>
@@ -184,14 +184,14 @@ export default async function ProjectPage({
 
       <section
         aria-labelledby="titulo-capturas"
-        className={cx("bg-mist", sectionY)}
+        className={cx("bg-night-800", sectionY)}
       >
         <div className={container}>
           <h2 id="titulo-capturas" className={h2}>
             Capturas
           </h2>
           {project.shotsNote ? (
-            <p className="mt-4 max-w-[60ch] text-ink-600">{project.shotsNote}</p>
+            <p className="mt-4 max-w-[60ch] text-fg-mute">{project.shotsNote}</p>
           ) : null}
 
           {project.desktop.length > 0 ? (
@@ -233,30 +233,30 @@ export default async function ProjectPage({
 
       <nav
         aria-label="Otros proyectos"
-        className="border-b border-line bg-paper"
+        className="border-b border-night-700 bg-night-900"
       >
         <div className={cx(container, "grid tablet:grid-cols-2")}>
           <Link
             href={`/proyectos/${prev.slug}`}
             className="group flex min-h-24 flex-col justify-center gap-1 py-6 tablet:pr-8"
           >
-            <span className="inline-flex items-center gap-2 text-sm text-ink-600">
+            <span className="inline-flex items-center gap-2 text-sm text-fg-mute">
               <ArrowLeftIcon width={16} height={16} />
               Proyecto anterior
             </span>
-            <span className="font-display text-title font-semibold group-hover:text-cobalt-600">
+            <span className="font-display text-title font-semibold group-hover:text-gold-400">
               {prev.name}
             </span>
           </Link>
           <Link
             href={`/proyectos/${next.slug}`}
-            className="group flex min-h-24 flex-col justify-center gap-1 border-t border-line py-6 tablet:items-end tablet:border-t-0 tablet:border-l tablet:pl-8"
+            className="group flex min-h-24 flex-col justify-center gap-1 border-t border-night-700 py-6 tablet:items-end tablet:border-t-0 tablet:border-l tablet:pl-8"
           >
-            <span className="inline-flex items-center gap-2 text-sm text-ink-600">
+            <span className="inline-flex items-center gap-2 text-sm text-fg-mute">
               Proyecto siguiente
               <ArrowRightIcon width={16} height={16} />
             </span>
-            <span className="font-display text-title font-semibold group-hover:text-cobalt-600">
+            <span className="font-display text-title font-semibold group-hover:text-gold-400">
               {next.name}
             </span>
           </Link>

@@ -19,7 +19,7 @@ export function Contact({
       id="contacto"
       data-hide-float
       aria-labelledby="titulo-contacto"
-      className={cx("on-dark bg-cobalt-600 text-white", sectionY)}
+      className={cx("on-gold bg-gold-400 text-night-950", sectionY)}
     >
       <div className={cx(container, "grid items-end gap-10 laptop:grid-cols-12 laptop:gap-16")}>
         <div className="laptop:col-span-7">
@@ -29,16 +29,16 @@ export function Contact({
           >
             {title}
           </h2>
-          <p className="measure mt-6 text-lead text-cobalt-100">{text}</p>
+          <p className="measure mt-6 text-lead text-night-800">{text}</p>
         </div>
 
         <div className="flex flex-col gap-6 laptop:col-span-5">
-          <WhatsAppButton size="lg" message={message} className="w-full" />
+          <WhatsAppButton variant="onGoldPrimary" size="lg" message={message} className="w-full" />
           <div>
-            <p className="mb-3 text-sm text-cobalt-200">También podés escribirme por:</p>
+            <p className="mb-3 text-sm text-night-800">También podés escribirme por:</p>
             <div className="flex flex-col gap-3 narrow:flex-row narrow:flex-wrap">
-              <EmailButton />
-              <LinkedInButton />
+              <EmailButton variant="onGoldSecondary" />
+              <LinkedInButton variant="onGoldSecondary" />
             </div>
           </div>
         </div>

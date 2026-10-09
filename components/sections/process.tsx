@@ -7,7 +7,7 @@ export function Process() {
     <section
       id="proceso"
       aria-labelledby="titulo-proceso"
-      className={cx("bg-paper", sectionY)}
+      className={cx("bg-night-900", sectionY)}
     >
       <div className={container}>
         <div className="max-w-3xl">
@@ -28,15 +28,15 @@ export function Process() {
             >
               <span
                 aria-hidden="true"
-                className="font-display text-[3rem] leading-none font-bold text-cobalt-600 laptop:block laptop:text-[3.75rem]"
+                className="font-display text-[3rem] leading-none font-bold text-gold-400 laptop:block laptop:text-[3.75rem]"
               >
                 {i + 1}
               </span>
-              <div className="laptop:mt-5 laptop:border-t-2 laptop:border-ink-950 laptop:pt-5">
+              <div className="laptop:mt-5 laptop:border-t-2 laptop:border-gold-400 laptop:pt-5">
                 <h3 className="font-display text-title font-semibold">
                   {step.title}
                 </h3>
-                <p className="mt-2 text-ink-800">{step.text}</p>
+                <p className="mt-2 text-fg-soft">{step.text}</p>
               </div>
             </li>
           ))}

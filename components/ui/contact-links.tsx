@@ -18,7 +18,7 @@ type WhatsAppButtonProps = {
 
 /** La acción principal de toda la página: escribir por WhatsApp. */
 export function WhatsAppButton({
-  variant = "primaryDark",
+  variant = "primary",
   size = "md",
   message,
   className,
@@ -41,7 +41,7 @@ export function WhatsAppButton({
 type SecondaryProps = { variant?: BtnVariant; size?: Size; className?: string };
 
 export function EmailButton({
-  variant = "secondaryDark",
+  variant = "secondary",
   size = "md",
   className,
 }: SecondaryProps) {
@@ -57,7 +57,7 @@ export function EmailButton({
 }
 
 export function LinkedInButton({
-  variant = "secondaryDark",
+  variant = "secondary",
   size = "md",
   className,
 }: SecondaryProps) {

@@ -9,8 +9,6 @@ type FrameProps = {
   className?: string;
   /** Texto decorativo de la barra del navegador. */
   address?: string;
-  /** Sobre fondo oscuro el borde pasa a un blanco translúcido. */
-  onDark?: boolean;
 };
 
 /** Ventana de navegador con una captura de escritorio. */
@@ -20,25 +18,23 @@ export function BrowserFrame({
   priority,
   className,
   address,
-  onDark,
 }: FrameProps) {
   return (
     <div
       className={cx(
-        "overflow-hidden rounded-lg border-2 bg-white",
-        onDark ? "border-white/35" : "border-ink-950",
+        "overflow-hidden rounded-lg border-2 border-night-700 bg-night-800",
         className,
       )}
     >
       <div
         aria-hidden="true"
-        className="flex items-center gap-1.5 border-b border-line bg-mist px-3 py-2"
+        className="flex items-center gap-1.5 border-b border-night-700 bg-night-800 px-3 py-2"
       >
-        <span className="size-2.5 rounded-full bg-ink-950/25" />
-        <span className="size-2.5 rounded-full bg-ink-950/25" />
-        <span className="size-2.5 rounded-full bg-ink-950/25" />
+        <span className="size-2.5 rounded-full bg-fg/25" />
+        <span className="size-2.5 rounded-full bg-fg/25" />
+        <span className="size-2.5 rounded-full bg-fg/25" />
         {address ? (
-          <span className="ml-3 truncate font-mono text-[0.72rem] text-ink-600">
+          <span className="ml-3 truncate font-mono text-[0.72rem] text-fg-mute">
             {address}
           </span>
         ) : null}
@@ -62,11 +58,11 @@ export function PhoneFrame({
   sizes,
   priority,
   className,
-}: Omit<FrameProps, "address" | "onDark">) {
+}: Omit<FrameProps, "address">) {
   return (
     <div
       className={cx(
-        "overflow-hidden rounded-[1.5rem] border-[5px] border-ink-950 bg-ink-950",
+        "overflow-hidden rounded-[1.5rem] border-[5px] border-night-700 bg-night-700",
         className,
       )}
     >

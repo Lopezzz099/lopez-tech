@@ -40,7 +40,7 @@ export function WhatsAppFloat() {
       tabIndex={visible ? 0 : -1}
       aria-hidden={visible ? undefined : true}
       className={cx(
-        "fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-(--z-float) inline-flex size-14 items-center justify-center rounded-full border-2 border-ink-950 bg-lima-400 text-ink-950 shadow-[0_4px_14px_oklch(0.2_0.045_265/0.35)] transition-[opacity,translate,background-color] duration-300 ease-out hover:bg-lima-500 laptop:hidden",
+        "fixed right-4 bottom-[max(1rem,env(safe-area-inset-bottom))] z-(--z-float) inline-flex size-14 items-center justify-center rounded-full border-2 border-night-950 bg-gold-400 text-night-950 shadow-[0_4px_14px_oklch(0.1_0.012_262/0.6)] transition-[opacity,translate,background-color] duration-300 ease-out hover:bg-gold-300 laptop:hidden",
         visible ? "opacity-100" : "pointer-events-none translate-y-3 opacity-0",
       )}
     >

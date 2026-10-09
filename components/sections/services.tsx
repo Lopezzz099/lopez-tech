@@ -6,7 +6,7 @@ export function Services() {
     <section
       id="servicios"
       aria-labelledby="titulo-servicios"
-      className={cx("bg-mist", sectionY)}
+      className={cx("bg-night-800", sectionY)}
     >
       <div className={cx(container, "grid gap-12 laptop:grid-cols-12 laptop:gap-16")}>
         <div className="laptop:col-span-4">
@@ -21,14 +21,14 @@ export function Services() {
           </div>
         </div>
 
-        <ul className="border-t-2 border-ink-950 laptop:col-span-8">
+        <ul className="border-t-2 border-gold-400 laptop:col-span-8">
           {services.map((service) => (
             <li
               key={service.title}
-              className="reveal grid gap-2 border-b border-line py-7 tablet:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] tablet:gap-8"
+              className="reveal grid gap-2 border-b border-night-700 py-7 tablet:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)] tablet:gap-8"
             >
               <h3 className="font-display text-title font-semibold">{service.title}</h3>
-              <p className="text-ink-800">{service.text}</p>
+              <p className="text-fg-soft">{service.text}</p>
             </li>
           ))}
         </ul>

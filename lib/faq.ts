@@ -24,7 +24,7 @@ export const faqs: Faq[] = [
   {
     question: "¿Qué pasa después de publicar?",
     answer:
-      "El sitio o la app queda en línea y funcionando. Te explico cómo se usa y, si algo falla, me escribís por WhatsApp. Si querés que me ocupe de las actualizaciones, existe el plan de mantenimiento mensual.",
+      "El sitio o la app queda en línea y funcionando. Te explico cómo se usa y, si algo falla, me escribís por WhatsApp. Si querés que me ocupe de las actualizaciones, podemos acordar un servicio de mantenimiento.",
   },
   {
     question: "¿Hacés cambios una vez terminado?",

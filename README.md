@@ -38,7 +38,7 @@ Sin ninguna de las dos se usa `http://localhost:3000`.
 
 ```
 app/
-  globals.css            Tokens de diseño en @theme: colores OKLCH, tipografías, escala fluida, puntos de corte
+  globals.css            Tokens de diseño en @theme: colores OKLCH (fondo casi negro y dorado apagado), tipografías, escala fluida, puntos de corte
   layout.tsx             Fuentes (next/font), encabezado, pie, botón flotante, metadatos globales
   page.tsx               Portada: todas las secciones y el JSON-LD ProfessionalService
   proyectos/[slug]/      Página de detalle por proyecto (estática) y su imagen Open Graph
@@ -48,12 +48,12 @@ components/
   header.tsx             Encabezado fijo y menú lateral (dialog nativo), con enlace actual marcado
   whatsapp-float.tsx     Botón flotante de WhatsApp para celular
   site-footer.tsx
-  sections/              Hero, proyectos, servicios, proceso, planes, preguntas, sobre mí y contacto
+  sections/              Hero, proyectos, servicios, proceso, preguntas, sobre mí y contacto
   ui/                    Logo, íconos, marcos de captura, botones de contacto
 lib/
   contact.ts             ÚNICO archivo con WhatsApp, email y LinkedIn, y los constructores de enlaces
   projects.ts            Los cinco proyectos: textos, tecnologías, enlaces y capturas
-  services.ts, process.ts, plans.ts, faq.ts, about.ts   Contenido tipado
+  services.ts, process.ts, faq.ts, about.ts   Contenido tipado
   ui.ts                  Clases repetidas (botones, chips, títulos), en un solo lugar
   site.ts, json-ld.ts, og.tsx, nav.ts
 public/proyectos/<slug>/ Capturas en WebP (escritorio y celular)
@@ -65,7 +65,6 @@ Los componentes son de servidor por defecto. Llevan `'use client'` solo el encab
 ## Cómo actualizar el contenido
 
 - **Contacto**: editá `lib/contact.ts` (`whatsapp`, `email`, `linkedin`). El mensaje precargado de WhatsApp y el asunto del email también están ahí.
-- **Precios**: en `lib/plans.ts`, reemplazá cada `[PRECIO]`.
 - **Foto y datos propios**: en `lib/about.ts`, completá `photo` con el archivo en `public/`, el texto alternativo y las medidas.
 - **Agregar o cambiar un proyecto**: editá `lib/projects.ts`. Cada proyecto tiene `slug`, `kind` (`web` o `app`), `badge` (la aclaración visible: "Proyecto de demostración" o "Proyecto propio"), puntos técnicos, tecnologías, `siteUrl` y `repoUrl` (opcionales) y capturas. Para los proyectos con repositorio privado no se carga `repoUrl`. La página `/proyectos/[slug]`, el sitemap y la imagen para compartir se generan solos.
 - **Capturas**: archivos `escritorio-N.webp` (1800×1125) y `celular-N.webp` (780×1688) en `public/proyectos/<slug>/`. Tienen que mostrar solo contenido real del proyecto.

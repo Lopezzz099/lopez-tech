@@ -10,7 +10,7 @@ export function About() {
     <section
       id="sobre-mi"
       aria-labelledby="titulo-sobre-mi"
-      className={cx("bg-mist", sectionY)}
+      className={cx("bg-night-900", sectionY)}
     >
       <div className={cx(container, "grid gap-12 laptop:grid-cols-12 laptop:gap-16")}>
         <div className="laptop:col-span-5">
@@ -24,14 +24,14 @@ export function About() {
               width={about.photo.width}
               height={about.photo.height}
               sizes="(min-width: 64rem) 420px, 100vw"
-              className="mt-8 h-auto w-full max-w-sm rounded-lg border-2 border-ink-950"
+              className="mt-8 h-auto w-full max-w-sm rounded-lg border-2 border-gold-400"
             />
           ) : null}
         </div>
 
         <div className="laptop:col-span-7">
           {about.paragraphs.map((paragraph) => (
-            <p key={paragraph} className="measure mb-5 text-lead text-ink-800">
+            <p key={paragraph} className="measure mb-5 text-lead text-fg-soft">
               {paragraph}
             </p>
           ))}

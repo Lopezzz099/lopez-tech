@@ -11,7 +11,7 @@ export function Hero() {
     <section
       data-hide-float
       aria-labelledby="titulo-principal"
-      className="on-dark overflow-hidden bg-cobalt-600 text-white"
+      className="overflow-hidden bg-night-950 text-fg"
     >
       <div
         className={cx(
@@ -29,7 +29,7 @@ export function Hero() {
             <span className="marker">publicación</span>
           </h1>
           <p
-            className="rise measure mt-7 text-lead text-cobalt-100"
+            className="rise measure mt-7 text-lead text-fg-soft"
             style={{ ["--i" as string]: 1 }}
           >
             Soy Ignacio López y desarrollo sitios web y aplicaciones móviles
@@ -43,13 +43,13 @@ export function Hero() {
             <WhatsAppButton size="lg" />
             <a
               href="#proyectos"
-              className={cx(btn, btnLg, btnVariant.secondaryDark)}
+              className={cx(btn, btnLg, btnVariant.secondary)}
             >
               Ver proyectos
             </a>
           </div>
           <p
-            className="rise mt-6 text-sm text-cobalt-200"
+            className="rise mt-6 text-sm text-fg-mute"
             style={{ ["--i" as string]: 3 }}
           >
             Trabajo de forma remota desde Argentina, con clientes de cualquier ciudad.
@@ -61,7 +61,6 @@ export function Hero() {
           <BrowserFrame
             shot={web}
             priority
-            onDark
             address="terracoffe-one.vercel.app"
             sizes="(min-width: 64rem) 620px, (min-width: 48rem) 720px, 100vw"
             className="w-[90%]"
@@ -72,7 +71,7 @@ export function Hero() {
             className="absolute right-0 bottom-0 w-[24%] max-w-[10rem]"
           />
           </div>
-          <figcaption className="mt-2 max-w-[44ch] text-sm text-cobalt-200">
+          <figcaption className="mt-2 max-w-[44ch] text-sm text-fg-mute">
             TerraCoffe y Laboratorios Caldén, dos de mis sitios de demostración.
           </figcaption>
         </figure>

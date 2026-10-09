@@ -28,7 +28,7 @@ export function ProjectMedia({ project, priority, className }: Props) {
     return (
       <div
         className={cx(
-          "flex items-start justify-center gap-4 rounded-lg bg-cobalt-100 px-6 pt-8 tablet:gap-8 tablet:px-10 tablet:pt-10",
+          "flex items-start justify-center gap-4 rounded-lg bg-night-800 px-6 pt-8 tablet:gap-8 tablet:px-10 tablet:pt-10",
           className,
         )}
       >
