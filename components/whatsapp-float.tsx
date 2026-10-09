@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { whatsappUrl } from "@/lib/contact";
 import { cx } from "@/lib/ui";
@@ -11,14 +12,12 @@ import { WhatsAppIcon } from "./ui/icons";
  * y el pie), así nunca tapa esas zonas ni se repite.
  */
 export function WhatsAppFloat() {
+  const pathname = usePathname();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const targets = document.querySelectorAll("[data-hide-float]");
-    if (targets.length === 0) {
-      setVisible(true);
-      return;
-    }
+    if (targets.length === 0) return;
     const covering = new Set<Element>();
     const io = new IntersectionObserver((entries) => {
       for (const entry of entries) {
@@ -29,7 +28,8 @@ export function WhatsAppFloat() {
     });
     targets.forEach((t) => io.observe(t));
     return () => io.disconnect();
-  }, []);
+    // Cada ruta tiene sus propios bloques marcados, así que se vuelve a observar al navegar.
+  }, [pathname]);
 
   return (
     <a

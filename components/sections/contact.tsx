@@ -21,8 +21,8 @@ export function Contact({
       aria-labelledby="titulo-contacto"
       className={cx("on-dark bg-cobalt-600 text-white", sectionY)}
     >
-      <div className={container}>
-        <div className="max-w-3xl">
+      <div className={cx(container, "grid items-end gap-10 laptop:grid-cols-12 laptop:gap-16")}>
+        <div className="laptop:col-span-7">
           <h2
             id="titulo-contacto"
             className="font-display text-display font-bold"
@@ -32,13 +32,11 @@ export function Contact({
           <p className="measure mt-6 text-lead text-cobalt-100">{text}</p>
         </div>
 
-        <div className="mt-10 flex flex-col gap-6">
-          <div>
-            <WhatsAppButton size="lg" message={message} className="w-full tablet:w-auto" />
-          </div>
+        <div className="flex flex-col gap-6 laptop:col-span-5">
+          <WhatsAppButton size="lg" message={message} className="w-full" />
           <div>
             <p className="mb-3 text-sm text-cobalt-200">También podés escribirme por:</p>
-            <div className="flex flex-col gap-3 tablet:flex-row tablet:flex-wrap">
+            <div className="flex flex-col gap-3 narrow:flex-row narrow:flex-wrap">
               <EmailButton />
               <LinkedInButton />
             </div>

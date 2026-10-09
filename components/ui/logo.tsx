@@ -9,7 +9,7 @@ export function Logo({ current, className = "" }: LogoProps) {
       href="/"
       aria-label="López Tech, inicio"
       aria-current={current ? "page" : undefined}
-      className={`group inline-flex min-h-11 items-center gap-2.5 ${className}`}
+      className={`group inline-flex min-h-11 shrink-0 items-center gap-2.5 whitespace-nowrap ${className}`}
     >
       <svg
         width="30"

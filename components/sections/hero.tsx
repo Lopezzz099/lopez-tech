@@ -16,7 +16,7 @@ export function Hero() {
       <div
         className={cx(
           container,
-          "grid items-center gap-12 pt-12 pb-20 laptop:grid-cols-[1.02fr_1fr] laptop:gap-14 laptop:pt-20 laptop:pb-28",
+          "grid items-center gap-12 pt-12 pb-20 laptop:grid-cols-[0.95fr_1.05fr] laptop:gap-14 laptop:pt-20 laptop:pb-28",
         )}
       >
         <div>
@@ -25,8 +25,8 @@ export function Hero() {
             className="rise font-display text-display font-bold"
             style={{ ["--i" as string]: 0 }}
           >
-            Tu sitio web o tu app,{" "}
-            <span className="marker">de la idea a la publicación</span>
+            Tu sitio web o tu app, de la idea a la{" "}
+            <span className="marker">publicación</span>
           </h1>
           <p
             className="rise measure mt-7 text-lead text-cobalt-100"
@@ -63,8 +63,8 @@ export function Hero() {
             priority
             onDark
             address="terracoffe-one.vercel.app"
-            sizes="(min-width: 64rem) 560px, (min-width: 48rem) 720px, 100vw"
-            className="w-[88%]"
+            sizes="(min-width: 64rem) 620px, (min-width: 48rem) 720px, 100vw"
+            className="w-[90%]"
           />
           <PhoneFrame
             shot={phone}

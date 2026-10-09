@@ -15,7 +15,7 @@ function PlanCard({ plan }: { plan: Plan }) {
       )}
     >
       <h3 className="font-display text-title font-semibold">{plan.name}</h3>
-      <p className={cx("mt-2", featured ? "text-cobalt-100" : "text-ink-600")}>
+      <p className={cx("mt-2 laptop:min-h-14", featured ? "text-cobalt-100" : "text-ink-600")}>
         {plan.summary}
       </p>
 

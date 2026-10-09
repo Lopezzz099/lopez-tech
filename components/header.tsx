@@ -42,7 +42,6 @@ function useActiveSection(enabled: boolean): string | null {
 export function Header() {
   const pathname = usePathname();
   const dialogRef = useRef<HTMLDialogElement>(null);
-  const [open, setOpen] = useState(false);
 
   const isHome = pathname === "/";
   const sectionActive = useActiveSection(isHome);
@@ -54,7 +53,6 @@ export function Header() {
 
   const openMenu = useCallback(() => {
     dialogRef.current?.showModal();
-    setOpen(true);
   }, []);
 
   const closeMenu = useCallback(() => {
@@ -108,7 +106,6 @@ export function Header() {
             type="button"
             onClick={openMenu}
             aria-haspopup="dialog"
-            aria-expanded={open}
             aria-controls="menu-movil"
             aria-label="Abrir menú"
             className="inline-flex size-12 items-center justify-center rounded-lg text-white transition-colors hover:bg-cobalt-500 laptop:hidden"
@@ -122,12 +119,11 @@ export function Header() {
         ref={dialogRef}
         id="menu-movil"
         aria-label="Menú"
-        onClose={() => setOpen(false)}
         onClick={(e) => {
           // Un clic sobre el fondo oscuro llega al propio <dialog>.
           if (e.target === dialogRef.current) closeMenu();
         }}
-        className="drawer on-dark fixed inset-y-0 right-0 left-auto z-(--z-drawer) m-0 h-dvh max-h-none w-[min(23rem,90vw)] max-w-none border-0 bg-cobalt-700 p-0 text-white"
+        className="drawer on-dark fixed inset-y-0 right-0 left-auto z-(--z-drawer) m-0 h-dvh max-h-none w-[min(21rem,86vw)] max-w-none border-0 bg-cobalt-700 p-0 text-white"
       >
         <div className="flex h-full flex-col overflow-y-auto px-5 pt-3 pb-8">
           <div className="flex items-center justify-between">

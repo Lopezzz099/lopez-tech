@@ -68,11 +68,11 @@ export default async function ProjectPage({
   const index = projects.findIndex((p) => p.slug === project.slug);
   const prev = projects[(index - 1 + projects.length) % projects.length];
   const next = projects[(index + 1) % projects.length];
-  const isApp = project.kind === "app";
 
   return (
     <>
       <section
+        data-hide-float
         aria-labelledby="titulo-proyecto"
         className="on-dark overflow-hidden bg-cobalt-600 text-white"
       >
