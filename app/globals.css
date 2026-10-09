@@ -1,26 +1,224 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+  Tokens de diseño. Es el único lugar donde se definen colores, tipografías,
+  escala fluida y puntos de corte. Los colores están en OKLCH.
+
+  Estrategia de color: comprometida. El cobalto ocupa el hero, el encabezado,
+  el cierre y el pie; el lima de marcador es el color de la acción principal.
+*/
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-narrow: 26rem;
+  --breakpoint-tablet: 48rem;
+  --breakpoint-laptop: 64rem;
+  --breakpoint-wide: 82rem;
+
+  --color-*: initial;
+  --color-white: oklch(1 0 0);
+  --color-paper: oklch(1 0 0);
+  --color-mist: oklch(0.965 0.011 265);
+  --color-line: oklch(0.88 0.018 265);
+
+  --color-ink-950: oklch(0.2 0.045 265);
+  --color-ink-800: oklch(0.32 0.04 265);
+  --color-ink-600: oklch(0.45 0.035 265);
+
+  --color-cobalt-700: oklch(0.35 0.17 266);
+  --color-cobalt-600: oklch(0.43 0.2 266);
+  --color-cobalt-500: oklch(0.5 0.21 265);
+  --color-cobalt-200: oklch(0.86 0.07 265);
+  --color-cobalt-100: oklch(0.93 0.035 265);
+
+  --color-lima-400: oklch(0.92 0.2 118);
+  --color-lima-500: oklch(0.86 0.19 120);
+
+  --font-*: initial;
+  --font-display: var(--font-bricolage), ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-onest), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-spline-mono), ui-monospace, monospace;
+
+  --text-*: initial;
+  --text-sm: 0.9375rem;
+  --text-sm--line-height: 1.5;
+  --text-base: 1.0625rem;
+  --text-base--line-height: 1.65;
+  --text-lead: clamp(1.15rem, 1.04rem + 0.5vw, 1.4rem);
+  --text-lead--line-height: 1.5;
+  --text-title: clamp(1.35rem, 1.18rem + 0.75vw, 1.8rem);
+  --text-title--line-height: 1.2;
+  --text-heading: clamp(2rem, 1.4rem + 2.6vw, 3.6rem);
+  --text-heading--line-height: 1.04;
+  --text-display: clamp(2.6rem, 1.55rem + 4.7vw, 5.5rem);
+  --text-display--line-height: 1;
+
+  --radius-sm: 0.375rem;
+  --radius-md: 0.625rem;
+  --radius-lg: 0.875rem;
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  --z-header: 40;
+  --z-float: 30;
+  --z-drawer: 60;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
+@layer base {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --focus: var(--color-cobalt-600);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5.5rem;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    background: var(--color-paper);
+    color: var(--color-ink-950);
+    font-family: var(--font-sans);
+    font-size: var(--text-base);
+    line-height: var(--text-base--line-height);
+    text-rendering: optimizeLegibility;
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  /* Contenido de lectura con largo de línea cómodo. */
+  .measure {
+    max-width: 62ch;
+  }
+
+  /* Superficies oscuras: el anillo de foco pasa a lima. */
+  .on-dark {
+    --focus: var(--color-lima-400);
+  }
+
+  :focus-visible {
+    outline: 3px solid var(--focus);
+    outline-offset: 3px;
+    border-radius: var(--radius-sm);
+  }
+
+  ::selection {
+    background: var(--color-lima-400);
+    color: var(--color-ink-950);
+  }
+
+  /* El menú lateral bloquea el scroll de la página mientras está abierto. */
+  :root:has(dialog[open]) {
+    overflow: hidden;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  /* Subrayado de marcador bajo una frase clave del titular. */
+  .marker {
+    text-decoration: underline;
+    text-decoration-color: var(--color-lima-400);
+    text-decoration-thickness: 0.11em;
+    text-underline-offset: 0.16em;
+    text-decoration-skip-ink: none;
+  }
+
+  /* Menú móvil: panel que entra desde la derecha. */
+  .drawer {
+    translate: 100% 0;
+    transition:
+      translate 0.34s var(--ease-out),
+      display 0.34s allow-discrete,
+      overlay 0.34s allow-discrete;
+  }
+  .drawer[open] {
+    translate: 0 0;
+  }
+  @starting-style {
+    .drawer[open] {
+      translate: 100% 0;
+    }
+  }
+  .drawer::backdrop {
+    background: oklch(0.14 0.05 265 / 0.62);
+    opacity: 0;
+    transition:
+      opacity 0.34s ease,
+      display 0.34s allow-discrete,
+      overlay 0.34s allow-discrete;
+  }
+  .drawer[open]::backdrop {
+    opacity: 1;
+  }
+  @starting-style {
+    .drawer[open]::backdrop {
+      opacity: 0;
+    }
+  }
+
+  /* Preguntas frecuentes con <details>: el signo gira al abrir. */
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+  details[open] .faq-icon {
+    rotate: 45deg;
+  }
+}
+
+/* Movimiento. Todo parte de un estado ya visible y se apaga con movimiento reducido. */
+@keyframes rise {
+  from {
+    translate: 0 1.1rem;
+  }
+  to {
+    translate: 0 0;
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    translate: 0 1.75rem;
+  }
+  to {
+    opacity: 1;
+    translate: 0 0;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .rise {
+    animation: rise 0.8s var(--ease-out) both;
+    animation-delay: calc(var(--i, 0) * 80ms);
+  }
+
+  @supports (animation-timeline: view()) {
+    .reveal {
+      animation: reveal-up linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 45%;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .drawer,
+  .drawer::backdrop {
+    transition-duration: 0.01ms;
+  }
 }
