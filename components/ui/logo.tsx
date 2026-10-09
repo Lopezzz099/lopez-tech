@@ -30,7 +30,7 @@ export function Logo({ current, className = "" }: LogoProps) {
         />
         <circle cx="21" cy="9.5" r="2.1" fill="var(--color-ink-950)" />
       </svg>
-      <span className="font-display text-[1.2rem] leading-none tracking-tight">
+      <span translate="no" className="font-display text-[1.2rem] leading-none tracking-tight">
         <span className="font-bold">López</span>{" "}
         <span className="font-normal text-cobalt-200">Tech</span>
       </span>

@@ -1,36 +1,86 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# López Tech
 
-## Getting Started
+Sitio comercial de López Tech: desarrollo de sitios web y aplicaciones móviles, de la idea a la publicación. Es una página aparte del portfolio personal. Se enfoca en vender el servicio y en llevar a la persona a escribir por WhatsApp.
 
-First, run the development server:
+Hecho con Next.js 16 (App Router), React 19, TypeScript y Tailwind CSS 4. Se despliega en Vercel, en la raíz del dominio.
+
+## Cómo correrlo
+
+Requiere Node 20 o superior.
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+El sitio queda en http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+| Comando | Qué hace |
+|---|---|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción (debe pasar sin errores antes de cada push) |
+| `npm run start` | Sirve el build de producción |
+| `npm run lint` | ESLint |
+| `npx tsc --noEmit` | Chequeo de tipos (también debe pasar antes de cada push) |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Variables de entorno
 
-## Learn More
+Ninguna es obligatoria; el sitio compila y funciona sin definir nada. Están en `.env.example`.
 
-To learn more about Next.js, take a look at the following resources:
+| Variable | Para qué sirve |
+|---|---|
+| `NEXT_PUBLIC_SITE_URL` | URL pública, sin barra final. Se usa en Open Graph, sitemap, robots y datos estructurados. |
+| `VERCEL_PROJECT_PRODUCTION_URL` | La define Vercel sola. Se usa si falta la anterior. |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Sin ninguna de las dos se usa `http://localhost:3000`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura
 
-## Deploy on Vercel
+```
+app/
+  globals.css            Tokens de diseño en @theme: colores OKLCH, tipografías, escala fluida, puntos de corte
+  layout.tsx             Fuentes (next/font), encabezado, pie, botón flotante, metadatos globales
+  page.tsx               Portada: todas las secciones y el JSON-LD ProfessionalService
+  proyectos/[slug]/      Página de detalle por proyecto (estática) y su imagen Open Graph
+  opengraph-image.tsx    Imagen para compartir de la portada
+  sitemap.ts, robots.ts  Generados con las convenciones de Next
+components/
+  header.tsx             Encabezado fijo y menú lateral (dialog nativo), con enlace actual marcado
+  whatsapp-float.tsx     Botón flotante de WhatsApp para celular
+  site-footer.tsx
+  sections/              Hero, proyectos, servicios, proceso, planes, preguntas, sobre mí y contacto
+  ui/                    Logo, íconos, marcos de captura, botones de contacto
+lib/
+  contact.ts             ÚNICO archivo con WhatsApp, email y LinkedIn, y los constructores de enlaces
+  projects.ts            Los cinco proyectos: textos, tecnologías, enlaces y capturas
+  services.ts, process.ts, plans.ts, faq.ts, about.ts   Contenido tipado
+  ui.ts                  Clases repetidas (botones, chips, títulos), en un solo lugar
+  site.ts, json-ld.ts, og.tsx, nav.ts
+public/proyectos/<slug>/ Capturas en WebP (escritorio y celular)
+PRODUCT.md               Contexto de producto y de diseño
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Los componentes son de servidor por defecto. Llevan `'use client'` solo el encabezado (menú y enlace actual) y el botón flotante.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Cómo actualizar el contenido
+
+- **Contacto**: editá `lib/contact.ts` (`whatsapp`, `email`, `linkedin`). El mensaje precargado de WhatsApp y el asunto del email también están ahí.
+- **Precios**: en `lib/plans.ts`, reemplazá cada `[PRECIO]`.
+- **Foto y datos propios**: en `lib/about.ts`, completá `photo` con el archivo en `public/`, el texto alternativo y las medidas.
+- **Agregar o cambiar un proyecto**: editá `lib/projects.ts`. Cada proyecto tiene `slug`, `kind` (`web` o `app`), `badge` (la aclaración visible: "Proyecto de demostración" o "Proyecto propio"), puntos técnicos, tecnologías, `siteUrl` y `repoUrl` (opcionales) y capturas. Para los proyectos con repositorio privado no se carga `repoUrl`. La página `/proyectos/[slug]`, el sitemap y la imagen para compartir se generan solos.
+- **Capturas**: archivos `escritorio-N.webp` (1800×1125) y `celular-N.webp` (780×1688) en `public/proyectos/<slug>/`. Tienen que mostrar solo contenido real del proyecto.
+
+## Reglas del proyecto
+
+- Nada de testimonios, logos de clientes, cantidades de clientes ni resultados inventados.
+- Los proyectos de demostración llevan la etiqueta visible "Proyecto de demostración".
+- La clase base de los botones (`btn` en `lib/ui.ts`) no define fondo ni color de borde: cada variante trae el suyo.
+- Sin analítica ni cookies de terceros.
+
+## Despliegue en Vercel
+
+1. Importar el repositorio en Vercel (preset Next.js, sin cambios).
+2. No hace falta configurar variables de entorno. Para tener el dominio propio en Open Graph y sitemap, definí `NEXT_PUBLIC_SITE_URL`.
+3. No se usa `output: 'export'` ni `basePath`: el sitio funciona en la raíz del dominio.
+
+No hay workflows de GitHub Actions ni GitHub Pages.
