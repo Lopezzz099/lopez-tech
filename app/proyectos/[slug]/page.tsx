@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { ParticlesBackdrop } from "@/components/particles-backdrop";
 import { Contact } from "@/components/sections/contact";
 import { WhatsAppButton } from "@/components/ui/contact-links";
 import { BrowserFrame, PhoneFrame } from "@/components/ui/frames";
@@ -74,11 +75,13 @@ export default async function ProjectPage({
       <section
         data-hide-float
         aria-labelledby="titulo-proyecto"
-        className="overflow-hidden bg-night-950 text-fg"
+        className="relative overflow-hidden bg-night-950 text-fg"
       >
+        <ParticlesBackdrop />
         <div
           className={cx(
             container,
+            "relative z-10",
             "grid items-center gap-12 pt-8 pb-16 laptop:grid-cols-[1fr_1.05fr] laptop:gap-14 laptop:pt-12 laptop:pb-24",
           )}
         >

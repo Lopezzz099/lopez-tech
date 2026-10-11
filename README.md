@@ -47,6 +47,7 @@ app/
 components/
   header.tsx             Encabezado fijo y menú lateral (dialog nativo), con enlace actual marcado
   whatsapp-float.tsx     Botón flotante de WhatsApp para celular
+  particles.tsx          Partículas WebGL (React Bits + ogl), cargadas bajo demanda por particles-backdrop.tsx
   site-footer.tsx
   sections/              Hero, proyectos, servicios, proceso, preguntas, sobre mí y contacto
   ui/                    Logo, íconos, marcos de captura, botones de contacto
@@ -60,7 +61,7 @@ public/proyectos/<slug>/ Capturas en WebP (escritorio y celular)
 PRODUCT.md               Contexto de producto y de diseño
 ```
 
-Los componentes son de servidor por defecto. Llevan `'use client'` solo el encabezado (menú y enlace actual) y el botón flotante.
+Los componentes son de servidor por defecto. Llevan `'use client'` solo el encabezado (menú y enlace actual), el botón flotante y el fondo de partículas. Las partículas arrancan con la primera interacción (o a los 5 segundos), no se cargan con movimiento reducido ni con ahorro de datos, y solo se dibujan mientras están a la vista.
 
 ## Cómo actualizar el contenido
 

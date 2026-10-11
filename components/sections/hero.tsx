@@ -1,6 +1,7 @@
 import { projectBySlug } from "@/lib/projects";
 import { btn, btnLg, btnVariant, container, cx } from "@/lib/ui";
 import { WhatsAppButton } from "../ui/contact-links";
+import { ParticlesBackdrop } from "../particles-backdrop";
 import { BrowserFrame, PhoneFrame } from "../ui/frames";
 
 export function Hero() {
@@ -11,11 +12,13 @@ export function Hero() {
     <section
       data-hide-float
       aria-labelledby="titulo-principal"
-      className="overflow-hidden bg-night-950 text-fg"
+      className="relative overflow-hidden bg-night-950 text-fg"
     >
+      <ParticlesBackdrop />
       <div
         className={cx(
           container,
+          "relative z-10",
           "grid items-center gap-12 pt-12 pb-20 laptop:grid-cols-[0.95fr_1.05fr] laptop:gap-14 laptop:pt-20 laptop:pb-28",
         )}
       >
