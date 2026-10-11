@@ -4,7 +4,7 @@ import { useEffect, useState, type ComponentType } from "react";
 import type { ParticlesProps } from "./particles";
 
 // Dorado apagado de la marca y un gris azulado, para que no compitan con el texto.
-const COLORS = ["#d6b265", "#ebcd8c", "#a0a5ae"];
+const COLORS = ["#d6b265", "#d6b265", "#ebcd8c", "#a0a5ae"];
 
 type NavigatorWithConnection = Navigator & { connection?: { saveData?: boolean } };
 
@@ -38,10 +38,10 @@ export function ParticlesBackdrop() {
       window.clearTimeout(timer);
       load();
     };
-    // El fondo es decorativo: arranca con la primera interacción, o a los 5 segundos de cargada la página.
+    // El fondo es decorativo: arranca con la primera interacción, o 1,2 segundos después de cargada la página.
     events.forEach((e) => window.addEventListener(e, start, { passive: true, once: true }));
     const arm = () => {
-      timer = window.setTimeout(start, 5000);
+      timer = window.setTimeout(start, 1200);
     };
     if (document.readyState === "complete") arm();
     else window.addEventListener("load", arm, { once: true });
@@ -59,11 +59,11 @@ export function ParticlesBackdrop() {
       {Particles ? (
         <Particles
           particleColors={COLORS}
-          particleCount={150}
+          particleCount={190}
           particleSpread={12}
-          speed={0.15}
-          particleBaseSize={260}
-          sizeRandomness={1.2}
+          speed={0.2}
+          particleBaseSize={420}
+          sizeRandomness={1.4}
           alphaParticles
           moveParticlesOnHover
           particleHoverFactor={1.2}

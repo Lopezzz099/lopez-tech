@@ -61,7 +61,7 @@ public/proyectos/<slug>/ Capturas en WebP (escritorio y celular)
 PRODUCT.md               Contexto de producto y de diseño
 ```
 
-Los componentes son de servidor por defecto. Llevan `'use client'` solo el encabezado (menú y enlace actual), el botón flotante y el fondo de partículas. Las partículas arrancan con la primera interacción (o a los 5 segundos), no se cargan con movimiento reducido ni con ahorro de datos, y solo se dibujan mientras están a la vista.
+Los componentes son de servidor por defecto. Llevan `'use client'` solo el encabezado (menú y enlace actual), el botón flotante y el fondo de partículas. Las partículas arrancan con la primera interacción (o 1,2 segundos después de cargar), no se cargan con movimiento reducido ni con ahorro de datos, y solo se dibujan mientras están a la vista.
 
 ## Cómo actualizar el contenido
 
