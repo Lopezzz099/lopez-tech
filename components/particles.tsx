@@ -204,6 +204,9 @@ export default function Particles({
 
     const particles = new Mesh(gl, { mode: gl.POINTS, geometry, program });
 
+    // Primer cuadro inmediato: si el navegador demora o pausa las animaciones, igual se ven las partículas.
+    renderer.render({ scene: particles, camera });
+
     let frameId = 0;
     let running = false;
     let lastTime = performance.now();
